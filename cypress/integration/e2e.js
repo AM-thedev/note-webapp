@@ -1,7 +1,7 @@
 describe('Redux Notekeeper', function() {
-  it('Test notes exist', function() {
+  it('filter and create new exist', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('Test note 1')
-    cy.contains('Test note 2')
+    cy.contains('filter:')
+    cy.contains('create new')
   })
 })
