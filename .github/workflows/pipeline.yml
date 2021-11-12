@@ -16,7 +16,7 @@ jobs:
       - name: Now it is
         run: |
           date
-      - Directory content:
+      - name: Directory content
         run: |
           ls -l
 ##----------------------------------------##
@@ -31,12 +31,11 @@ jobs:
         run: npm install
       - name: lint
         run: npm run eslint
-      - name: run backend
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          run: npm run server
       - name: e2e tests
+        uses: actions/setup-node@v1
+          with:
+            node-version: '12.x'
+            run: npm run server
         uses: cypress-io/github-action@v2
         with:
           command: npm run test:e2e
@@ -46,7 +45,7 @@ jobs:
   versioning:
     runs-on: ubuntu-18.04
     steps:
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
         uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
