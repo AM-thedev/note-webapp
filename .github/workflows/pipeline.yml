@@ -31,12 +31,11 @@ jobs:
         run: npm install
       - name: lint
         run: npm run eslint
-      - name: run backend
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          run: npm run server
       - name: e2e tests
+        uses: actions/setup-node@v1
+          with:
+            node-version: '12.x'
+            run: npm run server
         uses: cypress-io/github-action@v2
         with:
           command: npm run test:e2e
