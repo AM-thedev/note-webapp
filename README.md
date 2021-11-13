@@ -1,6 +1,7 @@
 # Notekeeper webapp
 
 Webapp for submitting notes, state handled with Redux.  Notes can be added and "voted" on.
+
 Standard React readme below:
 
 
